@@ -307,15 +307,9 @@
 		simplyCountdown('.simply-countdown-one', {
 			year: d.getFullYear(),
 			month: d.getMonth() + 1,
-			day: d.getDate()
-		});
-
-		//jQuery example
-		$('#simply-countdown-losange').simplyCountdown({
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
 			day: d.getDate(),
-			enableUtc: false
+			hours: d.getHours(),
+			minutes: d.getMinutes()
 		});
 	</script>
 
