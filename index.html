@@ -81,8 +81,8 @@
 					<div class="col-xs-2">
 						<div id="fh5co-logo"><a href="index.html">Wedding<strong>.</strong></a></div>
 					</div>
-					<div class="col-xs-10 text-right menu-1 translatable translate-eng">
-						<ul>
+					<div class="col-xs-10 text-right menu-1">
+						<ul class="translatable translate-eng">
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="story.html">Story</a></li>
 							<li><a href="groomsbrides.html">Groomsman & Bridesmaid</a></li>
@@ -109,8 +109,8 @@
 						</ul>
 					</div>
 
-					<div class="col-xs-10 text-right menu-1 translatable translate-gr" style="display:none">
-						<ul>
+					<div class="col-xs-10 text-right menu-1">
+						<ul class="translatable translate-gr" style="display:none">
 							<li class="active"><a href="index.html">Αρχικη</a></li>
 							<li><a href="story.html">Ιστορια</a></li>
 							<li><a href="groomsbrides.html">Κουμπαρος & Κουμπαρα</a></li>
@@ -499,21 +499,26 @@
 			$('.translatable.translate-' + lang).show();
 		}
 
-		if (typeof (Storage) !== "undefined") {
-			let storedlang = localStorage.getItem("language");
-			if (storedlang) {
-				lang = storedlang;
-				translate();
-			}
-		}
 
-		$('.languages').on('click', function () {
-			lang = $(this).data('lang');
-			translate();
+		$(function () {
+
 			if (typeof (Storage) !== "undefined") {
-				localStorage.setItem("language", lang);
+				let storedlang = localStorage.getItem("language");
+				if (storedlang) {
+					lang = storedlang;
+					translate();
+				}
 			}
-		})
+
+			$('.languages').on('click', function () {
+				lang = $(this).data('lang');
+				translate();
+				if (typeof (Storage) !== "undefined") {
+					localStorage.setItem("language", lang);
+				}
+			})
+
+		});
 
 	</script>
 
