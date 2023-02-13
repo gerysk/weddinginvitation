@@ -269,21 +269,25 @@
 			$('.translatable.translate-' + lang).show();
 		}
 
-		if (typeof (Storage) !== "undefined") {
-			let storedlang = localStorage.getItem("language");
-			if (storedlang) {
-				lang = storedlang;
-				translate();
-			}
-		}
+		$(function () {
 
-		$('.languages').on('click', function () {
-			lang = $(this).data('lang');
-			translate();
 			if (typeof (Storage) !== "undefined") {
-				localStorage.setItem("language", lang);
+				let storedlang = localStorage.getItem("language");
+				if (storedlang) {
+					lang = storedlang;
+					translate();
+				}
 			}
-		})
+
+			$('.languages').on('click', function () {
+				lang = $(this).data('lang');
+				translate();
+				if (typeof (Storage) !== "undefined") {
+					localStorage.setItem("language", lang);
+				}
+			})
+
+		});
 
 	</script>
 
