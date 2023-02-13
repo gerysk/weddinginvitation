@@ -42,6 +42,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
 		type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.2/css/flag-icons.min.css" rel="stylesheet">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -87,6 +88,24 @@
 							<li class="active"><a href="groomsbrides.html">Groomsman & Bridesmaid</a></li>
 							<li><a href="event.html">Event</a></li>
 							<li><a href="contact.html">Contact</a></li>
+							<li class="has-dropdown">
+								<a href="#" class="translatable translate-eng"><span class="fi fi-gb fig"></span> English</a>
+								<a href="#" class="translatable translate-gr"><span class="fi fi-gr fig"></span> ΕΛΛΗΝΙΚΑ</a>
+								<ul class="dropdown">
+									<li>
+										<a class="languages" data-lang="eng" href="#">
+											<span class="fi fi-gb fig"></span>
+											ENGLISH
+										</a>
+									</li>
+									<li>
+										<a class="languages" data-lang="gr" href="#">
+											<span class="fi fi-gr fig"></span>
+											ΕΛΛΗΝΙΚΑ
+										</a>
+									</li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -95,7 +114,7 @@
 		</nav>
 
 		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner"
-			style="background-image:url(images/central2.jpg);">
+			style="background-image:url(images/central_picture.jpg);">
 			<div class="overlay"></div>
 			<div class="fh5co-container">
 				<div class="row">
@@ -201,16 +220,37 @@
 	<script src="js/main.js"></script>
 
 	<script>
-		var d = new Date(1686497400000);
 
-		// default example
-		simplyCountdown('.simply-countdown-one', {
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
-			day: d.getDate(),
-			hours: d.getHours(),
-			minutes: d.getMinutes()
-		});
+		var lang = 'eng';
+		function translate() {
+			// $('*[data-translate]').each(function () {
+			// 	let translation = t($(this).data('translate'));
+			// 	if ($(this).is("input")) {
+			// 		$(this).val(translation);
+			// 	} else {
+			// 		$(this).html(translation);
+			// 	}
+			// })
+			$('.translatable').hide();
+			$('.translatable.translate-' + lang).show();
+		}
+
+		if (typeof (Storage) !== "undefined") {
+			let storedlang = localStorage.getItem("language");
+			if (storedlang) {
+				lang = storedlang;
+				translate();
+			}
+		}
+
+		$('.languages').on('click', function () {
+			lang = $(this).data('lang');
+			translate();
+			if (typeof (Storage) !== "undefined") {
+				localStorage.setItem("language", lang);
+			}
+		})
+
 	</script>
 
 </body>
