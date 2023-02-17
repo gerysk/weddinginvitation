@@ -8,11 +8,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title class="translatable-data" data-gr="Προσκλητήριο Γάμου" data-eng="Wedding Invitation">Wedding Invitation</title>
+	<link rel="icon" type="image/x-icon" href="./images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
 
 	<!-- 
 	//////////////////////////////////////////////////////
@@ -208,7 +206,7 @@
 						</div>
 						<div class="desc-groom">
 							<h3>Μανώλης Διαμάντης</h3>
-							<p>Εχοντας ταξιδέψει σ’ ολόκληρο τον κόσμο, όλα αυτά τα χρόνια ως καπετάνιος,
+							<p>Έχοντας ταξιδέψει σ’ ολόκληρο τον κόσμο, όλα αυτά τα χρόνια ως καπετάνιος,
 								συνειδητοποίησα οτι το λιμάνι μου είσαι εσύ</p>
 						</div>
 					</div>
@@ -231,7 +229,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-push-6 animate-box">
-						<h3>Wedding Venue</h3>
+						<h3 class="translatable translate-eng">Wedding Venue</h3>
+						<h3 class="translatable translate-gr" style="display: none;">Χώρος γάμου/δεξίωσης</h3>
 
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d394.19669463016237!2d24.0806598!3d37.7765962!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a18b3d9b50cf93%3A0x50ab3606dba817c2!2zzprPhM6uzrzOsSDOkc-Azq3Pgc6xzr3PhM6_IM6TzrHOu86szrbOuc6_IC0gzqfPgc-Fz4POv86yzrnPhM-DzrnPjs-Ezrc!5e0!3m2!1sen!2sgr!4v1676130263785!5m2!1sen!2sgr"
@@ -241,7 +240,8 @@
 					<div class="col-md-5 col-md-pull-5 animate-box">
 
 						<div class="fh5co-contact-info">
-							<h3>Contact Information</h3>
+							<h3 class="translatable translate-eng">Contact Information</h3>
+							<h3 class="translatable translate-gr" style="display: none;">Επικοινωνία</h3>
 							<ul>
 								<li class="phone"><a href="tel://+306987694579">Manolis:+306987694579</a></li>
 								<li class="phone"><a href="tel://+306978924159">Barbara:+306978924159</a></li>
@@ -324,6 +324,10 @@
 			// })
 			$('.translatable').hide();
 			$('.translatable.translate-' + lang).show();
+
+			$('.translatable-data').each(function () {
+				$(this).html($(this).data(lang))
+			})
 		}
 
 		$(function () {
